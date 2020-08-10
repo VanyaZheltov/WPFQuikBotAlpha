@@ -1,0 +1,118 @@
+﻿<Window x:Class="WPFQuikBotTest.Views.Windows.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        xmlns:vm="clr-namespace:WPFQuikBotTest.ViewModels"
+        xmlns:oxy="http://oxyplot.org/wpf"
+        Title="{Binding Title}" Height="450" Width="994">
+    <Window.DataContext>
+        <vm:MainWindowViewModel/>
+    </Window.DataContext>
+    <Grid>
+        <DockPanel>
+            <Menu DockPanel.Dock="Top">
+                <MenuItem Header="Файл">
+                    <MenuItem Header="Подключиться">
+                        <MenuItem Command="{Binding ConnectCommand}" Header="Quik"/>
+                        <MenuItem Header="Quik Demo"/>
+                        <MenuItem Header="Файл"/>
+                    </MenuItem>
+                    <MenuItem Header="Выход"/>
+                </MenuItem>
+                <MenuItem Header="Помощь"/>
+            </Menu>
+            <StatusBar DockPanel.Dock="Bottom">
+                <StatusBarItem>
+                    <TextBlock Width="200" ><Run Text="{Binding Status}"/><InlineUIContainer>
+                            
+                        </InlineUIContainer></TextBlock>
+                </StatusBarItem>
+            </StatusBar>
+            <TabControl DockPanel.Dock="Top">
+                <TabItem Header="Индикаторы">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="154"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <GridSplitter Grid.Row="0" Background="LightGray" HorizontalAlignment="Stretch" Height="5" VerticalAlignment="Bottom" />
+                            <oxy:Plot Grid.Row="0" Margin="10,0,421,10">
+                                <oxy:Plot.Series>
+                                    <oxy:LineSeries/>
+                                </oxy:Plot.Series>
+                            </oxy:Plot>
+                            <oxy:Plot Grid.Row="0" Margin="405,1,0,5">
+                                <oxy:LineSeries/>
+                            </oxy:Plot>
+
+                            <oxy:Plot Grid.Row="1" Margin="10,0,421,0">
+                                <oxy:Plot.Series>
+                                    <oxy:LineSeries/>
+                                </oxy:Plot.Series>
+                            </oxy:Plot>
+                            <oxy:Plot Grid.Row="1" Margin="410,0,0,0">
+                                <oxy:Plot.Series>
+                                    <oxy:LineSeries/>
+                                </oxy:Plot.Series>
+                            </oxy:Plot>
+
+                        </Grid>
+                        <TextBox Text="{Binding FullTime}" Height="20" Margin="38,1,0,0" IsEnabled="False" VerticalAlignment="Top" HorizontalAlignment="Left" Width="99"/>
+                        <TextBox Text="{Binding Time}" Height="21" Margin="4,0,0,0" IsEnabled="False" VerticalAlignment="Top" HorizontalAlignment="Left" Width="24"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="8,26,0,0" TextWrapping="Wrap" Text="ммвб" VerticalAlignment="Top" Height="16" Width="62"/>
+                        <TextBox Text="{Binding LastPrice}" Height="20" Margin="75,26,0,0" IsEnabled="False" VerticalAlignment="Top" HorizontalAlignment="Left" Width="62"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="10,51,0,0" TextWrapping="Wrap" Text="ртс" VerticalAlignment="Top" Height="16" Width="18"/>
+                        <TextBox Text="{Binding LastPrice2}" Height="20" Margin="75,47,0,0" IsEnabled="False" VerticalAlignment="Top" HorizontalAlignment="Left" Width="62"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="10,92,0,0" TextWrapping="Wrap" Text="Low" VerticalAlignment="Top" Width="60" Height="16"/>
+                        <TextBox  Text="{Binding Low}" Height="20" Margin="75,88,0,0" IsEnabled="False" VerticalAlignment="Top" HorizontalAlignment="Left" Width="62"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="10,117,0,0" TextWrapping="Wrap" Text="Hihg" VerticalAlignment="Top" Width="60" Height="16"/>
+                        <TextBox Text="{Binding High}" Height="20" Margin="75,113,0,0" IsEnabled="False" VerticalAlignment="Top" HorizontalAlignment="Left" Width="62"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="10,142,0,0" TextWrapping="Wrap" Text="DIff" VerticalAlignment="Top" Width="60" Height="16"/>
+                        <TextBox Text="{Binding Diff}" Height="20" Margin="75,138,0,0" IsEnabled="False" VerticalAlignment="Top" HorizontalAlignment="Left" Width="62"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="10,167,0,0" TextWrapping="Wrap" Text="SMA 1" VerticalAlignment="Top" Width="60" Height="16"/>
+                        <TextBox Text="{Binding SMA1}" Height="20" Margin="75,163,0,0" IsEnabled="False" VerticalAlignment="Top" HorizontalAlignment="Left" Width="62"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="10,192,0,0" TextWrapping="Wrap" Text="SMA 2" VerticalAlignment="Top" Width="60" Height="16"/>
+                        <TextBox Text="{Binding SMA2}" Height="20" Margin="75,188,0,0" IsEnabled="False" VerticalAlignment="Top" HorizontalAlignment="Left" Width="62"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="10,217,0,0" TextWrapping="Wrap" Text="SMA 3" VerticalAlignment="Top" Width="60" Height="16"/>
+                        <TextBox Text="{Binding SMA3}" Height="20" Margin="75,213,0,0" IsEnabled="False" VerticalAlignment="Top" HorizontalAlignment="Left" Width="62"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="10,242,0,0" TextWrapping="Wrap" Text="SMA check" VerticalAlignment="Top" Width="60" Height="16"/>
+                        <TextBox Text="{Binding SMACheck}" Height="20" Margin="75,238,0,0" IsEnabled="False" VerticalAlignment="Top" HorizontalAlignment="Left" Width="62"/>
+                        <TextBox Text="{Binding Total}" Height="20" Margin="38,274,0,0" IsEnabled="False" VerticalAlignment="Top" HorizontalAlignment="Left" Width="99"/>
+                    </Grid>
+                </TabItem>
+
+                <TabItem Header="Настройки">
+                    <Grid>
+                        <Label Content="IP" FontWeight="Bold" FontSize="10" Margin="10,12,815,0" Height="22" VerticalAlignment="Top"/>
+                        <TextBox Height="20" Margin="75,12,0,0" IsEnabled="True" VerticalAlignment="Top" Text="{Binding ConnectIP}" HorizontalAlignment="Left" Width="83"/>
+
+                        <Label Content="SecCode" FontWeight="Bold" FontSize="10" Margin="10,32,815,0" Height="22" VerticalAlignment="Top"/>
+                        <TextBox Height="20" Margin="75,37,0,0" IsEnabled="True" VerticalAlignment="Top" Text="{Binding SecCode}" HorizontalAlignment="Left" Width="83"/>
+
+                        <Label Content="SMA1" FontWeight="Bold" FontSize="10" Margin="15,86,815,0" Height="22" VerticalAlignment="Top"/>
+                        <TextBox Height="20" Margin="75,88,0,0" IsEnabled="True" VerticalAlignment="Top" HorizontalAlignment="Left" Width="83" />
+
+                        <Label Content="SMA2" FontWeight="Bold" FontSize="10" Margin="15,113,815,0" Height="22" VerticalAlignment="Top"/>
+                        <TextBox Height="20" Margin="75,113,0,0" IsEnabled="True" VerticalAlignment="Top" HorizontalAlignment="Left" Width="83"/>
+
+                        <Label Content="SMA3" FontWeight="Bold" FontSize="10" Margin="15,140,815,0" Height="22" VerticalAlignment="Top"/>
+                        <TextBox Height="20" Margin="75,142,0,0" IsEnabled="True" VerticalAlignment="Top" HorizontalAlignment="Left" Width="83"/>
+
+
+
+                    </Grid>
+                </TabItem>
+
+
+
+            </TabControl>
+        </DockPanel>
+    </Grid>
+</Window>
